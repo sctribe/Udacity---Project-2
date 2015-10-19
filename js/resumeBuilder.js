@@ -55,7 +55,7 @@
  			"name" : "University of Southern California Viterbi School of Engineering",
  			"location" : "Los Angeles, CA",
  			"degree" : "Masters of Science",
- 			"majors" : "Electrical Engineering - Power",
+ 			"majors" : ["Electrical Engineering - Power"],
  			"dates" : 2013,
  			"url" : "www.usc.edu"
  		},
@@ -63,7 +63,7 @@
  			"name" : "University of Southern California Viterbi School of Engineering",
  			"location" : "Los Angeles, CA",
  			"degree" : "Bachelors of Science",
- 			"majors" : "Electrical Engineering",
+ 			"majors" : ["Electrical Engineering"],
  			"minor" : "Applied Computer Security",
  			"dates": 2011,
  			"url" : "www.usc.edu"
