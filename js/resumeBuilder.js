@@ -12,10 +12,9 @@
 	},
  	"welcomeMessage": "My welcome message is supposed to go here",
  	"skills": ["HTML", "CSS", "JS", "Android Development", "Web Development"],
- 	"biopic": "images/fox-main.jpg",
- 	"display" : {}
+ 	"biopic": "images/fox-main.jpg"
 
- }
+ };
 
  var work = {
  	"jobs" : [
@@ -47,9 +46,8 @@
  			"dates" : "October 2007 - October 2008",
  			"description" : "Performed cashiering and customer service duties at the USC Bookstore."
  		}
- 		],
- 		"display" : {}
- }
+ 		]	
+ };
 
  var education = {
  	"schools" : [
@@ -57,7 +55,7 @@
  			"name" : "University of Southern California Viterbi School of Engineering",
  			"location" : "Los Angeles, CA",
  			"degree" : "Masters of Science",
- 			"major" : "Electrical Engineering - Power",
+ 			"majors" : "Electrical Engineering - Power",
  			"dates" : 2013,
  			"url" : "www.usc.edu"
  		},
@@ -65,7 +63,7 @@
  			"name" : "University of Southern California Viterbi School of Engineering",
  			"location" : "Los Angeles, CA",
  			"degree" : "Bachelors of Science",
- 			"major" : "Electrical Engineering",
+ 			"majors" : "Electrical Engineering",
  			"minor" : "Applied Computer Security",
  			"dates": 2011,
  			"url" : "www.usc.edu"
@@ -78,9 +76,8 @@
  			"dates" : 2015,
  			"url" : "https://www.udacity.com/course/viewer#!/c-ud804-nd/l-1930528550/e-1935058561/m-1948898570"
  		}
- 	],
- 	"display" : {}
- }
+ 	]	
+ };
 
  var projects = {
  	"projects" : [
@@ -91,14 +88,14 @@
  			"images" : ["images/project1.jpg", "images/project2.jpg"]
  		}
  	]
- }
+ };
 
 
 /*Keep in mind the order the code shows up in the document matters for
 prepend/append. This is the only way to get this code to line up correctly
 at the top of the page otherwise contact info goes to the very top. */
 
-
+bio.display = function(){
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 $("#header").prepend(formattedRole);
 
@@ -138,25 +135,27 @@ for (var data in bio.contacts){
 	$("#topContacts").append(formattedTopContacts);
 	$("#footerContacts").append(formattedTopContacts);
 }
+$("#header").append(HTMLskillsStart);
 
+//if (bio.skills.length > 0) {
+for (var i=0; i<bio.skills.length; i++){
+ 	
 
-if (bio.skills.length > 0) {
- 	$("#header").append(HTMLskillsStart);
-
- 	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+ 	var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
  	$("#skills").append(formattedSkill);
- 	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
- 	$("#skills").append(formattedSkill);
- 	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
- 	$("#skills").append(formattedSkill);
- 	formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
- 	$("#skills").append(formattedSkill);
- 	formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
- 	$("#skills").append(formattedSkill);
+ 	//formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+ 	//$("#skills").append(formattedSkill);
+ 	//formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+ 	//$("#skills").append(formattedSkill);
+ 	//formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+ 	//$("#skills").append(formattedSkill);
+ 	//formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
+ 	//$("#skills").append(formattedSkill);
  }
+}
 
-function displayWork(){
-for (job in work.jobs) {
+work.display = function(){
+for (var job in work.jobs) {
 
  	$("#workExperience").append(HTMLworkStart);
 
@@ -179,10 +178,10 @@ for (job in work.jobs) {
  }
 }
 
-displayWork();
+
 
 projects.display = function() {
-	for (project in projects.projects) {
+	for (var project in projects.projects) {
 		$("#projects").append(HTMLprojectStart);
 
 		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
@@ -203,11 +202,9 @@ projects.display = function() {
 	}
 }
 
-projects.display();
 
-
-
-for (school in education.schools){
+education.display = function(){
+for (var school in education.schools){
 	$("#education").append(HTMLschoolStart);
 
 
@@ -223,13 +220,13 @@ for (school in education.schools){
 	var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 	$(".education-entry:last").append(formattedSchoolLocation);
 
-	var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+	var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
 	$(".education-entry:last").append(formattedMajor);
 
 	}
  
 
-for (course in education.onlineCourses){
+for (var course in education.onlineCourses){
 	$("#education").append(HTMLonlineClasses);
 	$("#education").append(HTMLschoolStart);
 
@@ -246,6 +243,12 @@ for (course in education.onlineCourses){
 	$(".education-entry:last").append(formattedURL);
 
 	}
+}
+
+bio.display();
+work.display();
+projects.display();
+education.display();
 
 $("#mapDiv").append(googleMap);
 
