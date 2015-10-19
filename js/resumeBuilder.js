@@ -108,21 +108,6 @@ $("#header").append(formattedBioPic);
 var formattedMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
 $("#header").append(formattedMessage);
 
-/* var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-$("#topContacts").append(formattedMobile);
-
-var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-$("#topContacts").append(formattedEmail);
-
-var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-$("#topContacts").append(formattedTwitter);
-
-var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-$("#topContacts").append(formattedGithub);
-
-var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-$("#topContacts").append(formattedLocation);
-*/
 
 /*This was tricky since all examples only iterated through arrays.
 First replace the %contact with the name of each item in the contact object.
@@ -137,20 +122,12 @@ for (var data in bio.contacts){
 }
 $("#header").append(HTMLskillsStart);
 
-//if (bio.skills.length > 0) {
 for (var i=0; i<bio.skills.length; i++){
  	
 
  	var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
  	$("#skills").append(formattedSkill);
- 	//formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
- 	//$("#skills").append(formattedSkill);
- 	//formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
- 	//$("#skills").append(formattedSkill);
- 	//formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
- 	//$("#skills").append(formattedSkill);
- 	//formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
- 	//$("#skills").append(formattedSkill);
+ 	
  }
 }
 
